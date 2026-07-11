@@ -16,8 +16,22 @@ body {
   /* ขยายจาก default ~16px เพื่อให้ผู้สูงอายุ/ผู้ป่วยหลังผ่าตัดอ่านง่าย */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  /* ล็อกให้ทั้งหน้าพอดี viewport ไม่ scroll เมื่อจอ >= 1920x1080 */
+  overflow: auto;
+  /* ปกติจะพอดี viewport ที่ >= 1920x1080 ไม่ scroll แต่ยอมให้ scroll ได้
+     เผื่อพื้นที่จริงเหลือน้อยกว่านั้น (เช่น browser chrome/แถบที่อยู่กินพื้นที่ไป)
+     กัน content ถูกตัดหายไปเฉยๆ */
+}
+
+header {
+  flex: 0 0 auto;
+  padding: 12px 24px;
+  background: #161b22;
+  border-bottom: 1px solid #2a2f37;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.4rem;
 }
 
 footer {
@@ -207,8 +221,9 @@ main {
   color: #f0f2f5;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1.05rem;
-  min-height: 46px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: 36px;
 }
 
 .mode-switch button.active {
@@ -240,8 +255,8 @@ main {
   background: #3b82f6;
   color: #fff;
   cursor: pointer;
-  font-size: 1rem;
-  min-height: 44px;
+  font-size: 0.8rem;
+  min-height: 30px;
   white-space: nowrap;
 }
 
@@ -367,7 +382,7 @@ main {
     padding: 10px 16px;
   }
 
-  header h1 {
+  header h2 {
     font-size: 1.3rem;
   }
 
