@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -11,23 +12,19 @@ body {
   font-family: "Segoe UI", "Noto Sans Thai", sans-serif;
   background: #101418;
   color: #f0f2f5;
-  font-size: 20px;
+  font-size: 18px;
   /* ขยายจาก default ~16px เพื่อให้ผู้สูงอายุ/ผู้ป่วยหลังผ่าตัดอ่านง่าย */
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* ล็อกให้ทั้งหน้าพอดี viewport ไม่ scroll เมื่อจอ >= 1920x1080 */
+  overflow: hidden;
+  /* ล็อกให้ทั้งหน้าพอดี viewport ไม่ scroll เมื่อจอ >= 1920x1080 */
 }
 
-header {
+footer {
   flex: 0 0 auto;
   padding: 12px 24px;
   background: #161b22;
-  border-bottom: 1px solid #2a2f37;
-}
-
-header h1 {
-  margin: 0 0 6px 0;
-  font-size: 1.6rem;
+  border-top: 1px solid #2a2f37;
 }
 
 .disclaimer {
@@ -43,7 +40,8 @@ header h1 {
 
 main {
   flex: 1 1 auto;
-  min-height: 0; /* จำเป็นให้ลูก flex ที่ scroll ภายในทำงานถูกต้อง */
+  min-height: 0;
+  /* จำเป็นให้ลูก flex ที่ scroll ภายในทำงานถูกต้อง */
   display: flex;
   gap: 16px;
   padding: 16px;
@@ -210,7 +208,7 @@ main {
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.05rem;
-  min-height: 52px;
+  min-height: 46px;
 }
 
 .mode-switch button.active {
@@ -220,6 +218,35 @@ main {
 
 .panel.hidden {
   display: none;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.panel-header h3 {
+  margin: 0;
+}
+
+.panel-action-btn {
+  flex: 0 0 auto;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.panel-action-btn:hover {
+  background: #2563eb;
 }
 
 .guideline-card {
@@ -232,7 +259,7 @@ main {
 
 .guideline-item {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 0.90rem;
   line-height: 1.6;
   color: #d7dce2;
 }
@@ -352,7 +379,12 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .controls button {
+  .panel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .panel-action-btn {
     width: 100%;
   }
 }
