@@ -50,7 +50,7 @@ main {
 }
 
 .camera-pane {
-  flex: 1 1 45%;
+  flex: 1 1 55%;
   min-width: 0;
   height: 100%;
   display: flex;
@@ -70,13 +70,14 @@ main {
 }
 
 .debug-pane {
-  flex: 0 0 300px;
-  height: 100%;
+  flex: 0 1 auto;
+  min-height: 0;
   overflow-y: auto;
   background: #1c222b;
   border: 1px solid #2a2f37;
   border-radius: 8px;
   padding: 12px;
+  margin-top: 16px;
   font-family: "SF Mono", "Consolas", monospace;
 }
 
@@ -182,10 +183,16 @@ main {
 }
 
 .content-pane {
-  flex: 1 1 35%;
+  flex: 1 1 45%;
   min-width: 320px;
   height: 100%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  flex: 0 0 auto;
 }
 
 .mode-switch {
@@ -289,4 +296,63 @@ main {
   margin-top: 12px;
   font-size: 1.2rem;
   color: #4ade80;
+}
+
+/* ===== Responsive ===== */
+
+/* จอเล็กกว่า desktop (แท็บเล็ต แนวตั้ง/แนวนอน): เรียง camera กับ content ซ้อนกันแทนเคียงข้าง
+   และปลดล็อก overflow เพราะพื้นที่ไม่พอให้ทุกอย่างพอดีจอเดียวแบบ 1920x1080 อีกต่อไป */
+@media (max-width: 1024px) {
+  body {
+    overflow: auto;
+    height: auto;
+    min-height: 100%;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .camera-pane {
+    flex: 0 0 auto;
+    height: auto;
+  }
+
+  .output-canvas {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .content-pane {
+    height: auto;
+    overflow-y: visible;
+  }
+}
+
+/* จอมือถือ: ลดขนาดตัวอักษร/ปุ่ม และให้ stat-grid เรียงคอลัมน์เดียว */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 10px 16px;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .mode-switch {
+    flex-direction: column;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls button {
+    width: 100%;
+  }
 }

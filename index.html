@@ -125,59 +125,59 @@
           <button id="resetTappingBtn">รีเซ็ตเซสชัน</button>
         </div>
       </div>
+
+      <aside class="debug-pane">
+        <div class="debug-header">
+          <span>Debug: Threshold Tuning</span>
+          <label class="debug-toggle">
+            <input type="checkbox" id="debugToggle" checked />
+            แสดง
+          </label>
+        </div>
+        <div id="debugContent" class="debug-content">
+          <div class="debug-row">
+            <span class="debug-label">ค่าปัจจุบัน (normalized dist)</span>
+            <span id="debugCurrentValue" class="debug-value">-</span>
+          </div>
+          <div class="debug-row">
+            <span class="debug-label">Threshold CLOSED / OPEN</span>
+            <span id="debugThresholds" class="debug-value">-</span>
+          </div>
+          <div class="debug-row">
+            <span class="debug-label">โซนปัจจุบัน</span>
+            <span id="debugZone" class="debug-value">-</span>
+          </div>
+
+          <!-- ปรับ threshold: Assessment / Game -->
+          <div id="thresholdControlsMain" class="threshold-controls">
+            <div class="threshold-field">
+              <label for="closedThresholdInput">CLOSED &lt; <span id="closedThresholdValue" class="threshold-value">-</span></label>
+              <input type="range" id="closedThresholdInput" step="0.05" min="0" max="2" />
+            </div>
+            <div class="threshold-field">
+              <label for="openThresholdInput">OPEN &gt; <span id="openThresholdValue" class="threshold-value">-</span></label>
+              <input type="range" id="openThresholdInput" step="0.05" min="0" max="2" />
+            </div>
+            <button id="resetThresholdMainBtn" class="threshold-reset-btn">รีเซ็ตเป็นค่าเริ่มต้น</button>
+          </div>
+
+          <!-- ปรับ threshold: Finger Tapping -->
+          <div id="thresholdControlsTapping" class="threshold-controls hidden">
+            <div class="threshold-field">
+              <label for="tapClosedThresholdInput">CLOSED &lt; <span id="tapClosedThresholdValue" class="threshold-value">-</span></label>
+              <input type="range" id="tapClosedThresholdInput" step="0.05" min="0" max="2" />
+            </div>
+            <div class="threshold-field">
+              <label for="tapOpenThresholdInput">OPEN &gt; <span id="tapOpenThresholdValue" class="threshold-value">-</span></label>
+              <input type="range" id="tapOpenThresholdInput" step="0.05" min="0" max="2" />
+            </div>
+            <button id="resetThresholdTappingBtn" class="threshold-reset-btn">รีเซ็ตเป็นค่าเริ่มต้น</button>
+          </div>
+
+          <canvas id="debugChart" width="600" height="120"></canvas>
+        </div>
+      </aside>
     </section>
-
-    <aside class="debug-pane">
-      <div class="debug-header">
-        <span>Debug: Threshold Tuning</span>
-        <label class="debug-toggle">
-          <input type="checkbox" id="debugToggle" checked />
-          แสดง
-        </label>
-      </div>
-      <div id="debugContent" class="debug-content">
-        <div class="debug-row">
-          <span class="debug-label">ค่าปัจจุบัน (normalized dist)</span>
-          <span id="debugCurrentValue" class="debug-value">-</span>
-        </div>
-        <div class="debug-row">
-          <span class="debug-label">Threshold CLOSED / OPEN</span>
-          <span id="debugThresholds" class="debug-value">-</span>
-        </div>
-        <div class="debug-row">
-          <span class="debug-label">โซนปัจจุบัน</span>
-          <span id="debugZone" class="debug-value">-</span>
-        </div>
-
-        <!-- ปรับ threshold: Assessment / Game -->
-        <div id="thresholdControlsMain" class="threshold-controls">
-          <div class="threshold-field">
-            <label for="closedThresholdInput">CLOSED &lt; <span id="closedThresholdValue" class="threshold-value">-</span></label>
-            <input type="range" id="closedThresholdInput" step="0.05" min="0" max="2" />
-          </div>
-          <div class="threshold-field">
-            <label for="openThresholdInput">OPEN &gt; <span id="openThresholdValue" class="threshold-value">-</span></label>
-            <input type="range" id="openThresholdInput" step="0.05" min="0" max="2" />
-          </div>
-          <button id="resetThresholdMainBtn" class="threshold-reset-btn">รีเซ็ตเป็นค่าเริ่มต้น</button>
-        </div>
-
-        <!-- ปรับ threshold: Finger Tapping -->
-        <div id="thresholdControlsTapping" class="threshold-controls hidden">
-          <div class="threshold-field">
-            <label for="tapClosedThresholdInput">CLOSED &lt; <span id="tapClosedThresholdValue" class="threshold-value">-</span></label>
-            <input type="range" id="tapClosedThresholdInput" step="0.05" min="0" max="2" />
-          </div>
-          <div class="threshold-field">
-            <label for="tapOpenThresholdInput">OPEN &gt; <span id="tapOpenThresholdValue" class="threshold-value">-</span></label>
-            <input type="range" id="tapOpenThresholdInput" step="0.05" min="0" max="2" />
-          </div>
-          <button id="resetThresholdTappingBtn" class="threshold-reset-btn">รีเซ็ตเป็นค่าเริ่มต้น</button>
-        </div>
-
-        <canvas id="debugChart" width="600" height="120"></canvas>
-      </div>
-    </aside>
   </main>
 
   <script src="app.js"></script>
